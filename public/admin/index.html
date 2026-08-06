@@ -20,19 +20,19 @@
         <button class="nav-item" data-view="audit">Audit logs</button>
         <button class="nav-item" data-view="settings">Settings</button>
       </nav>
-      <div class="fox-card"><span>Mr. FOX</span><strong>All systems healthy</strong><small>7 recommendations ready</small></div>
+      <div class="fox-card"><span>Mr. FOX</span><strong id="system-status">Checking systems…</strong><small id="system-detail">Connecting to platform services</small></div>
     </aside>
 
     <main>
       <header class="topbar glass">
         <div><p class="eyebrow">Executive workspace</p><h1 id="page-title">Overview</h1></div>
-        <div class="top-actions"><label class="search"><span>⌕</span><input placeholder="Search workspaces, users, logs…" /></label><button class="icon-btn">◌</button><div class="avatar">GS</div></div>
+        <div class="top-actions"><label class="search"><span>⌕</span><input id="global-search" placeholder="Search workspaces, users, logs…" /></label><button class="icon-btn" aria-label="Notifications">◌</button><div class="avatar">GS</div></div>
       </header>
 
       <section id="overview" class="view active-view">
         <div class="hero-grid">
-          <article class="hero glass"><div><p class="eyebrow">Business intelligence</p><h2>Good evening, Gaurav.</h2><p>Mr. FOX found three operational risks and five growth opportunities across your workspaces.</p><button class="primary">Review recommendations</button></div><div class="orb"><div class="orb-core">✦</div><span>Mr. FOX online</span></div></article>
-          <article class="pulse glass"><p class="eyebrow">Platform health</p><div class="score">94<span>%</span></div><strong>Excellent</strong><small>API, database, Firebase and webhooks are stable.</small></article>
+          <article class="hero glass"><div><p class="eyebrow">Business intelligence</p><h2>Good evening, Gaurav.</h2><p>Mr. FOX found three operational risks and five growth opportunities across your workspaces.</p><button class="primary" data-action="recommendations">Review recommendations</button></div><div class="orb"><div class="orb-core">✦</div><span id="fox-online-label">Mr. FOX connecting</span></div></article>
+          <article class="pulse glass"><p class="eyebrow">Platform health</p><div class="score" id="health-score">--<span>%</span></div><strong id="health-label">Checking</strong><small id="health-description">Verifying API, database, Firebase and webhooks.</small></article>
         </div>
 
         <div class="metrics">
@@ -43,17 +43,17 @@
         </div>
 
         <div class="content-grid">
-          <article class="panel glass"><div class="panel-head"><div><p class="eyebrow">Operations</p><h3>Workspace activity</h3></div><button class="ghost">View all</button></div><div class="chart"><span style="height:35%"></span><span style="height:58%"></span><span style="height:46%"></span><span style="height:75%"></span><span style="height:66%"></span><span style="height:88%"></span><span style="height:80%"></span></div><div class="chart-labels"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></article>
+          <article class="panel glass"><div class="panel-head"><div><p class="eyebrow">Operations</p><h3>Workspace activity</h3></div><button class="ghost" data-view-link="workspaces">View all</button></div><div class="chart"><span style="height:35%"></span><span style="height:58%"></span><span style="height:46%"></span><span style="height:75%"></span><span style="height:66%"></span><span style="height:88%"></span><span style="height:80%"></span></div><div class="chart-labels"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></article>
           <article class="panel glass"><div class="panel-head"><div><p class="eyebrow">Attention</p><h3>Priority queue</h3></div><span class="pill">6 open</span></div><div class="queue"><div><i class="danger"></i><span><strong>Webhook delivery spike</strong><small>Hidden Leaf workspace · 8m</small></span></div><div><i class="warning"></i><span><strong>3 invited users pending</strong><small>Agency workspace · 24m</small></span></div><div><i class="success"></i><span><strong>WhatsApp reconnect complete</strong><small>Retail workspace · 1h</small></span></div></div></article>
         </div>
 
         <div class="content-grid lower">
-          <article class="panel glass"><div class="panel-head"><div><p class="eyebrow">Integrations</p><h3>Connected services</h3></div><button class="ghost">Manage</button></div><div class="integrations"><div><b class="wa">W</b><span>WhatsApp<strong>18 connected</strong></span></div><div><b class="gm">M</b><span>Gmail<strong>14 connected</strong></span></div><div><b class="sl">S</b><span>Slack<strong>9 connected</strong></span></div><div><b class="ca">C</b><span>Calendar<strong>16 connected</strong></span></div></div></article>
+          <article class="panel glass"><div class="panel-head"><div><p class="eyebrow">Integrations</p><h3>Connected services</h3></div><button class="ghost" data-view-link="integrations">Manage</button></div><div class="integrations"><div><b class="wa">W</b><span>WhatsApp<strong>18 connected</strong></span></div><div><b class="gm">M</b><span>Gmail<strong>14 connected</strong></span></div><div><b class="sl">S</b><span>Slack<strong>9 connected</strong></span></div><div><b class="ca">C</b><span>Calendar<strong>16 connected</strong></span></div></div></article>
           <article class="panel glass recommendation"><div class="panel-head"><div><p class="eyebrow">Mr. FOX recommendation</p><h3>Reduce response latency</h3></div><span class="fox-mini">✦</span></div><p>Five workspaces exceed the 20-minute customer response target. Enable priority routing and suggested replies to improve conversion.</p><div class="button-row"><button class="primary">Configure routing</button><button class="ghost">Dismiss</button></div></article>
         </div>
       </section>
 
-      <section id="placeholder" class="view"><article class="empty glass"><div class="fox-mark large">✦</div><h2 id="placeholder-title">Module</h2><p>This enterprise module is ready for API wiring and detailed workflows.</p><button class="primary">Create first configuration</button></article></section>
+      <section id="module-view" class="view"><div id="module-content"></div></section>
     </main>
   </div>
   <script src="/admin/app.js"></script>

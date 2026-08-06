@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const path = require('path');
 const helmet = require('helmet');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
@@ -66,6 +67,16 @@ app.use(
     verify: (req, res, buf) => {
       req.rawBody = buf.toString();
     },
+  })
+);
+
+// Mr. FOX enterprise admin console. API authentication will be wired to the
+// admin modules as those endpoints are implemented.
+app.use(
+  '/admin',
+  express.static(path.join(__dirname, 'public', 'admin'), {
+    extensions: ['html'],
+    index: 'index.html',
   })
 );
 
